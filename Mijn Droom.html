@@ -1,0 +1,1255 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mijn Droom — De trap naar hoofdverpleegkundige</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Kalam:wght@400;700&family=Patrick+Hand&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ecd9;
+    --paper-2:#ebe0c5;
+    --paper-3:#f9f2df;
+    --ink:#1f1d29;
+    --ink-soft:#3d3a4b;
+    --muted:#6b6677;
+    --blue:#7ea0b2;
+    --blue-deep:#3a5566;
+    --mint:#86a274;
+    --mint-deep:#4f6a3f;
+    --coral:#c5524b;
+    --coral-soft:#e58a83;
+    --peach:#e9b48a;
+    --step:#c8b292;
+    --step-shadow:#8c7654;
+    --gold:#c9962b;
+    --line:#cdbd99;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Nunito",system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    overflow-x:hidden;
+    background-image:
+      radial-gradient(ellipse 1200px 600px at 80% -10%, rgba(201,150,43,.10), transparent 70%),
+      radial-gradient(ellipse 800px 500px at 0% 40%, rgba(126,160,178,.10), transparent 70%),
+      radial-gradient(ellipse 1000px 700px at 110% 90%, rgba(134,162,116,.10), transparent 70%);
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
+    background-image:
+      radial-gradient(circle at 12% 22%, rgba(60,40,20,.04) 0 1px, transparent 2px),
+      radial-gradient(circle at 78% 64%, rgba(60,40,20,.035) 0 1px, transparent 2px),
+      radial-gradient(circle at 38% 88%, rgba(60,40,20,.03) 0 1px, transparent 2px),
+      radial-gradient(circle at 92% 10%, rgba(60,40,20,.04) 0 1px, transparent 2px);
+    background-size: 220px 220px, 300px 300px, 180px 180px, 260px 260px;
+    mix-blend-mode:multiply;
+    opacity:.7;
+  }
+
+  .hand{font-family:"Caveat",cursive;font-weight:700;line-height:1}
+  .hand-light{font-family:"Caveat",cursive;font-weight:500;line-height:1.1}
+  .note{font-family:"Patrick Hand",cursive;line-height:1.35}
+  .serif{font-family:"Fraunces",serif}
+
+  a{color:inherit}
+
+  /* NAV */
+  nav.topnav{
+    position:fixed;top:18px;left:50%;transform:translateX(-50%);
+    z-index:30;
+    background:rgba(244,236,217,.85);
+    backdrop-filter:blur(8px);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:6px 8px;
+    display:flex;gap:2px;
+    box-shadow:0 4px 22px rgba(80,60,30,.08);
+  }
+  nav.topnav a{
+    font-family:"Patrick Hand",cursive;
+    font-size:15px;
+    color:var(--ink-soft);
+    padding:6px 14px;border-radius:999px;
+    text-decoration:none;
+    white-space:nowrap;
+    transition:.2s;
+  }
+  nav.topnav a:hover{background:var(--paper-2)}
+  nav.topnav a.active{background:var(--ink);color:var(--paper-3)}
+  @media (max-width:780px){ nav.topnav{display:none} }
+
+  /* Rail */
+  .rail{
+    position:fixed;
+    right:18px;top:50%;transform:translateY(-50%);
+    z-index:25;
+    width:46px;
+    display:flex;flex-direction:column;align-items:center;gap:0;
+  }
+  .rail .stair{
+    width:100%;
+    position:relative;
+    height:300px;
+    background:transparent;
+  }
+  .rail svg{position:absolute;inset:0;width:100%;height:100%}
+  .rail .footprint{
+    position:absolute;left:50%;transform:translate(-50%,-50%);
+    transition:top .3s ease;
+    width:22px;height:22px;
+    background:var(--coral);
+    border-radius:50%;
+    border:2px solid var(--ink);
+    box-shadow:0 2px 0 var(--ink);
+  }
+  .rail .label{
+    font-family:"Caveat",cursive;font-weight:700;
+    font-size:18px;color:var(--ink-soft);
+    margin-top:8px;
+  }
+  @media (max-width:900px){ .rail{display:none} }
+
+  /* Sections */
+  section{
+    position:relative;
+    padding:110px 90px 80px 6vw;
+    max-width:1280px;
+    margin:0 auto;
+    z-index:2;
+  }
+  section.tight{padding-top:60px}
+  .step-tag{
+    display:inline-block;
+    font-family:"Caveat",cursive;font-weight:700;
+    font-size:28px;
+    color:var(--ink);
+    background:var(--paper-2);
+    padding:4px 14px;
+    border-radius:4px;
+    transform:rotate(-2deg);
+    border:1.5px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    margin-bottom:18px;
+  }
+  h1, h2{font-family:"Caveat",cursive;font-weight:700;color:var(--ink);margin:0}
+  h1{font-size:clamp(64px,9vw,128px);line-height:.95;letter-spacing:-1px}
+  h2{font-size:clamp(46px,6vw,80px);line-height:1;margin-bottom:14px}
+  h3{font-family:"Caveat",cursive;font-weight:700;font-size:32px;margin:0 0 6px}
+  h4{font-family:"Patrick Hand",cursive;font-size:20px;margin:0 0 6px}
+  p{margin:0 0 14px;font-size:17px;color:var(--ink-soft)}
+  p.lead{font-size:21px;color:var(--ink);font-family:"Fraunces",serif;font-weight:400}
+  blockquote{
+    margin:0;
+    font-family:"Caveat",cursive;font-weight:600;
+    font-size:34px;line-height:1.12;color:var(--ink);
+    padding:6px 0 6px 22px;
+    border-left:4px solid var(--coral);
+  }
+  .underline-coral{
+    background-image:linear-gradient(to right, var(--coral) 0 100%);
+    background-position:0 92%;
+    background-repeat:no-repeat;
+    background-size:100% 8px;
+    padding:0 2px;
+  }
+  .underline-mint{
+    background-image:linear-gradient(to right, var(--mint) 0 100%);
+    background-position:0 92%;
+    background-repeat:no-repeat;
+    background-size:100% 8px;
+    padding:0 2px;
+  }
+
+  /* HERO */
+  .hero{
+    min-height:96vh;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:40px;
+    align-items:center;
+    padding-top:130px;
+  }
+  .hero h1 .small{font-size:.42em;display:block;color:var(--muted);font-weight:500;letter-spacing:0}
+  .hero .scribbles{position:absolute;pointer-events:none}
+  .hero-right{
+    position:relative;
+    text-align:center;
+  }
+  .drawing-frame{
+    position:relative;display:inline-block;
+    padding:18px 18px 60px;
+    background:var(--paper-3);
+    box-shadow:
+      0 1px 0 rgba(0,0,0,.05),
+      0 30px 50px -20px rgba(80,60,30,.35),
+      0 12px 24px -12px rgba(80,60,30,.25);
+    transform:rotate(-1.5deg);
+    border:1px solid var(--line);
+    max-width:520px;
+  }
+  .drawing-frame::before, .drawing-frame::after{
+    content:"";position:absolute;
+    width:90px;height:24px;
+    background:rgba(201,150,43,.55);
+    border:1px dashed rgba(120,80,20,.4);
+    top:-12px;
+    box-shadow:0 4px 8px rgba(0,0,0,.08);
+  }
+  .drawing-frame::before{left:30px;transform:rotate(-6deg)}
+  .drawing-frame::after{right:30px;transform:rotate(8deg)}
+  .drawing-frame img{display:block;width:100%;height:auto;border-radius:2px}
+  .drawing-frame .caption{
+    font-family:"Caveat",cursive;font-weight:700;
+    font-size:24px;
+    margin-top:14px;
+    color:var(--ink-soft);
+  }
+  .who{
+    margin-top:22px;
+    display:flex;align-items:center;gap:18px;
+    font-family:"Patrick Hand",cursive;font-size:21px;color:var(--ink-soft);line-height:1.45;
+  }
+  .who .dot{
+    width:48px;height:48px;border-radius:50%;
+    background:var(--coral);
+    border:2px solid var(--ink);
+    display:grid;place-items:center;
+    color:white;font-weight:700;font-family:"Nunito",sans-serif;font-size:20px;
+    box-shadow:2px 2px 0 var(--ink);
+    flex:0 0 auto;
+  }
+  .hero .arrow-down{
+    position:absolute;left:50%;bottom:24px;transform:translateX(-50%);
+    text-align:center;color:var(--ink-soft);
+    font-family:"Caveat",cursive;font-size:22px;
+    animation:bounce 2.4s ease-in-out infinite;
+  }
+  @keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;gap:30px;text-align:center}
+    .who{justify-content:center}
+  }
+
+  /* Origin */
+  .origin{
+    display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;
+  }
+  .origin .card{
+    background:var(--paper-3);
+    border:1.5px solid var(--ink);
+    border-radius:4px;
+    padding:30px 32px;
+    box-shadow:6px 6px 0 var(--ink);
+    transform:rotate(-.6deg);
+  }
+  .origin .card p{font-size:17.5px}
+  .timeline{
+    position:relative;
+    padding-left:40px;
+  }
+  .timeline::before{
+    content:"";position:absolute;left:14px;top:6px;bottom:6px;
+    width:3px;background:repeating-linear-gradient(to bottom, var(--ink) 0 6px, transparent 6px 12px);
+  }
+  .timeline .moment{position:relative;margin-bottom:24px}
+  .timeline .moment::before{
+    content:"";position:absolute;left:-32px;top:6px;width:18px;height:18px;
+    background:var(--paper);border:2.5px solid var(--ink);border-radius:50%;
+    box-shadow:2px 2px 0 var(--ink);
+  }
+  .timeline .moment .year{font-family:"Caveat",cursive;font-weight:700;font-size:22px;color:var(--coral)}
+  .timeline .moment .title{font-family:"Patrick Hand",cursive;font-size:19px;color:var(--ink);margin-bottom:4px}
+  .timeline .moment .desc{font-size:15.5px;color:var(--ink-soft)}
+  @media(max-width:860px){.origin{grid-template-columns:1fr}}
+
+  /* Goals */
+  .goals{
+    display:grid;grid-template-columns:1fr 1fr;gap:34px;
+    margin-top:30px;
+  }
+  .goal{
+    position:relative;
+    background:var(--paper-3);
+    border:1.5px solid var(--ink);
+    border-radius:6px;
+    padding:28px 28px 30px;
+    box-shadow:6px 6px 0 var(--ink);
+  }
+  .goal:nth-child(1){transform:rotate(-.8deg)}
+  .goal:nth-child(2){transform:rotate(.8deg)}
+  .goal .tag{
+    position:absolute;top:-14px;left:24px;
+    background:var(--ink);color:var(--paper-3);
+    padding:4px 12px;border-radius:3px;
+    font-family:"Patrick Hand",cursive;font-size:15px;
+    letter-spacing:.5px;
+  }
+  .goal h3{font-size:26px;line-height:1.05}
+  .goal .sub{font-family:"Patrick Hand",cursive;font-size:16px;color:var(--muted);margin:-2px 0 16px}
+  .goal p{font-size:15.5px}
+  .meter{
+    margin-top:14px;
+    background:var(--paper-2);
+    border:1.5px solid var(--ink);border-radius:999px;
+    height:34px;position:relative;overflow:hidden;
+  }
+  .meter .start, .meter .now{
+    position:absolute;top:0;bottom:0;left:0;
+    display:flex;align-items:center;justify-content:flex-end;
+    padding-right:10px;
+    color:white;font-weight:700;font-family:"Caveat",cursive;font-size:20px;
+    transition:width 1.2s cubic-bezier(.2,.8,.2,1);
+  }
+  .meter .start{background:repeating-linear-gradient(45deg,#b9aa86,#b9aa86 8px,#a89875 8px 16px);width:0}
+  .meter .now{background:var(--mint);width:0;border-right:2px dashed var(--paper-3)}
+  .meter-labels{
+    display:flex;justify-content:space-between;
+    font-family:"Patrick Hand",cursive;font-size:14px;color:var(--muted);
+    margin-top:6px;
+  }
+  .meter-labels .delta{color:var(--mint-deep);font-weight:700}
+  @media(max-width:780px){.goals{grid-template-columns:1fr}}
+
+  /* Rocks */
+  .rocks{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:18px;margin-top:24px;align-items:flex-end;
+  }
+  .rock{
+    background:linear-gradient(140deg, #b6a78a, #8e7e63 70%);
+    color:var(--paper-3);
+    padding:26px 22px;
+    position:relative;
+    border:1.5px solid var(--ink);
+    box-shadow:4px 4px 0 var(--ink);
+    transform:rotate(var(--r,-2deg));
+    cursor:default;
+    transition:transform .2s ease;
+    border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+  }
+  .rock:hover{transform:rotate(0) translateY(-4px)}
+  .rock h4{font-family:"Caveat",cursive;font-size:28px;color:var(--paper-3);margin-bottom:6px;line-height:1}
+  .rock p{color:#f3ead0;font-size:15.5px;line-height:1.4;margin:0}
+  .rock .cracks{
+    position:absolute;inset:0;pointer-events:none;opacity:.35;
+    background:
+      linear-gradient(transparent 38%, rgba(20,15,10,.45) 38.4%, transparent 39%) 0 0/100% 100% no-repeat,
+      linear-gradient(85deg, transparent 60%, rgba(20,15,10,.4) 60.4%, transparent 61%) 0 0/100% 100% no-repeat;
+    border-radius:inherit;
+  }
+
+  /* Sources */
+  .sources{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:26px;margin-top:30px;
+  }
+  .src{
+    background:var(--paper-3);
+    border:1.5px solid var(--ink);
+    border-radius:6px;
+    padding:22px 22px 18px;
+    box-shadow:5px 5px 0 var(--ink);
+    cursor:pointer;
+    transition:transform .25s, box-shadow .25s;
+    position:relative;
+    overflow:hidden;
+  }
+  .src:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+  .src.open{transform:none;box-shadow:5px 5px 0 var(--ink)}
+  .src .badge{
+    display:inline-block;font-family:"Patrick Hand",cursive;font-size:15px;
+    background:var(--blue);color:#fff;padding:3px 12px;border-radius:3px;
+    margin-bottom:10px;letter-spacing:.5px;
+  }
+  .src h3{font-size:28px;line-height:1.05;margin-bottom:8px}
+  .src .author{font-family:"Patrick Hand",cursive;font-size:16px;color:var(--muted);margin-bottom:12px}
+  .src .takeaway{
+    font-size:17px;color:var(--ink-soft);line-height:1.5;
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+  }
+  .src .more{
+    max-height:0;overflow:hidden;
+    transition:max-height .35s ease;
+    font-size:17px;color:var(--ink-soft);line-height:1.5;
+  }
+  .src.open .takeaway{display:none}
+  .src.open .more{max-height:1200px}
+  .src .more ul{margin:10px 0 4px 20px;padding:0}
+  .src .more li{margin-bottom:8px}
+  .src .toggle{
+    display:inline-flex;align-items:center;gap:4px;
+    margin-top:12px;font-family:"Patrick Hand",cursive;
+    font-size:16px;color:var(--coral);
+  }
+  .src .toggle::after{content:"+";font-size:20px;line-height:1;transition:transform .25s}
+  .src.open .toggle::after{content:"−"}
+
+  .src.video .badge{background:var(--coral)}
+  .src.podcast .badge{background:var(--mint-deep)}
+  .src.course .badge{background:var(--blue-deep)}
+  .src.webinar .badge{background:var(--gold);color:#1f1d29}
+  .src.film .badge{background:#7a4d8a}
+
+  /* Toolkit */
+  .toolkit{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:24px;margin-top:24px;
+  }
+  .tool{
+    position:relative;
+    background:var(--paper-3);
+    border:1.5px solid var(--ink);
+    border-radius:5px;
+    padding:46px 18px 18px;
+    box-shadow:4px 4px 0 var(--ink);
+    transform:rotate(var(--r,-.6deg));
+  }
+  .tool .pin{
+    position:absolute;top:-10px;left:50%;transform:translateX(-50%);
+    width:22px;height:22px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, #f48b85, var(--coral) 60%, #6a1a16);
+    border:1.5px solid var(--ink);
+    box-shadow:0 4px 6px rgba(0,0,0,.15);
+  }
+  .tool h4{font-family:"Caveat",cursive;font-size:30px;margin-bottom:6px;color:var(--ink);line-height:1}
+  .tool .label{font-family:"Patrick Hand",cursive;color:var(--blue-deep);font-size:16px;margin-bottom:10px}
+  .tool p{font-size:17px;margin:0;line-height:1.5}
+
+  /* Proofs */
+  .proofs{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:30px;
+  }
+  .proof{
+    position:relative;
+    background:var(--paper-3);
+    border:1.5px solid var(--ink);
+    border-radius:6px;
+    padding:26px 28px 24px 34px;
+    box-shadow:6px 6px 0 var(--ink);
+  }
+  .proof::before{
+    content:"";position:absolute;left:0;top:18px;bottom:18px;width:6px;
+    background:var(--coral);border-radius:0 4px 4px 0;
+  }
+  .proof .where{font-family:"Patrick Hand",cursive;font-size:15px;color:var(--coral);letter-spacing:.5px;text-transform:uppercase}
+  .proof h4{font-family:"Caveat",cursive;font-size:32px;margin:2px 0 10px;color:var(--ink);line-height:1}
+  .proof p{font-size:16.5px;margin:0 0 8px;line-height:1.5}
+  .proof .feel{
+    margin-top:12px;
+    font-family:"Caveat",cursive;font-weight:700;color:var(--mint-deep);
+    font-size:23px;line-height:1.15;
+  }
+  @media(max-width:780px){.proofs{grid-template-columns:1fr}}
+
+  /* SWOT */
+  .swot-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .swot-tabs button{
+    border:1.5px solid var(--ink);background:var(--paper-3);
+    font-family:"Patrick Hand",cursive;font-size:18px;
+    padding:8px 20px;border-radius:999px;cursor:pointer;
+    box-shadow:2px 2px 0 var(--ink);
+  }
+  .swot-tabs button.active{background:var(--ink);color:var(--paper-3)}
+
+  .swot-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  }
+  .swot-box{
+    background:var(--paper-3);
+    border:1.5px solid var(--ink);
+    border-radius:5px;
+    padding:22px 24px;
+    box-shadow:4px 4px 0 var(--ink);
+    min-height:220px;
+  }
+  .swot-box h4{
+    font-family:"Caveat",cursive;font-size:32px;margin-bottom:12px;
+    display:flex;align-items:center;gap:10px;line-height:1;
+  }
+  .swot-box ul{margin:0;padding:0;list-style:none}
+  .swot-box li{
+    font-size:17px;color:var(--ink-soft);line-height:1.45;
+    padding:6px 0 6px 24px;position:relative;
+  }
+  .swot-box li::before{
+    content:"✓";position:absolute;left:0;top:6px;
+    color:var(--mint-deep);font-weight:700;font-size:18px;
+  }
+  .swot-box.weak li::before, .swot-box.threat li::before{
+    content:"!";color:var(--coral);
+  }
+  .swot-box .ico{
+    display:inline-grid;place-items:center;width:36px;height:36px;border-radius:8px;
+    font-family:"Nunito",sans-serif;font-weight:700;font-size:16px;color:#fff;
+  }
+  .swot-box.strength .ico{background:var(--mint-deep)}
+  .swot-box.weak .ico{background:var(--coral)}
+  .swot-box.opp .ico{background:var(--blue-deep)}
+  .swot-box.threat .ico{background:#7a4d8a}
+  @media(max-width:780px){.swot-grid{grid-template-columns:1fr}}
+
+  /* Crown / End */
+  .crown{
+    display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center;margin-top:20px;
+  }
+  .values{display:flex;flex-wrap:wrap;gap:14px;margin-top:18px}
+  .value{
+    font-family:"Caveat",cursive;font-weight:700;font-size:28px;
+    background:var(--paper-3);border:1.5px solid var(--ink);
+    padding:8px 18px;border-radius:999px;
+    box-shadow:3px 3px 0 var(--ink);
+    transform:rotate(var(--r,-1deg));
+  }
+  .value.coral{background:var(--coral);color:#fff}
+  .value.mint{background:var(--mint);color:#fff}
+  .value.blue{background:var(--blue);color:#fff}
+  .value.gold{background:var(--gold);color:#1f1d29}
+  @media(max-width:860px){.crown{grid-template-columns:1fr}}
+
+  /* Closing */
+  .closing{
+    background:var(--ink);
+    color:var(--paper-3);
+    padding:80px 6vw 60px;
+    margin-top:80px;
+    position:relative;
+    overflow:hidden;
+  }
+  .closing::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(201,82,75,.18), transparent 50%),
+      radial-gradient(circle at 10% 70%, rgba(134,162,116,.18), transparent 50%);
+  }
+  .closing .inner{max-width:1280px;margin:0 auto;position:relative}
+  .closing h2{color:var(--paper-3)}
+  .closing p{color:#e3d8b6}
+  .closing blockquote{color:var(--paper-3);border-left-color:var(--coral-soft)}
+
+  .sticker{
+    display:inline-block;
+    background:var(--gold);
+    color:#1f1d29;
+    font-family:"Caveat",cursive;font-weight:700;font-size:22px;
+    padding:4px 14px;border-radius:4px;
+    transform:rotate(-3deg);
+    border:1.5px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+  }
+
+  .docs{
+    display:grid;grid-template-columns:repeat(auto-fill, minmax(300px,1fr));gap:18px;margin-top:30px;
+  }
+  .doc{
+    display:flex;align-items:center;gap:14px;
+    font-family:"Patrick Hand",cursive;font-size:19px;
+    color:var(--paper-3);
+    text-decoration:none;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:6px;padding:16px 18px;
+    transition:.2s;
+  }
+  .doc:hover{background:rgba(255,255,255,.1);transform:translate(-1px,-1px)}
+  .doc .icon{
+    width:42px;height:42px;display:grid;place-items:center;
+    background:var(--coral);border-radius:6px;flex:0 0 auto;
+    color:white;font-size:14px;font-weight:700;font-family:"Nunito",sans-serif;
+  }
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  .scratch{
+    font-family:"Caveat",cursive;
+    color:var(--coral);font-weight:700;
+    text-decoration:line-through;
+    text-decoration-thickness:3px;
+    text-decoration-color:var(--coral);
+  }
+  .pill{
+    display:inline-block;font-family:"Patrick Hand",cursive;font-size:14px;
+    background:var(--paper-2);border:1px solid var(--line);
+    padding:2px 10px;border-radius:999px;margin-right:6px;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <a href="#hero" class="active">Mijn Droom</a>
+  <a href="#begin">Het begin</a>
+  <a href="#doelen">Doelen</a>
+  <a href="#valkuilen">Stenen</a>
+  <a href="#bronnen">Bronnen</a>
+  <a href="#toolkit">Rugzak</a>
+  <a href="#keerpunten">Keerpunten</a>
+  <a href="#groei">Groei</a>
+  <a href="#einde">Bovenste trede</a>
+</nav>
+
+<!-- RAIL -->
+<aside class="rail" aria-hidden="true">
+  <div class="stair">
+    <svg viewBox="0 0 46 300" preserveAspectRatio="none">
+      <g fill="none" stroke="#1f1d29" stroke-width="1.5">
+        <path d="M2 290 L10 290 L10 270 L18 270 L18 250 L26 250 L26 230 L34 230 L34 210 L42 210 L42 10" fill="#cbb597" fill-opacity=".5"/>
+      </g>
+    </svg>
+    <div class="footprint" id="footprint" style="top:90%"></div>
+  </div>
+  <div class="label">stap</div>
+  <div class="label" id="step-num" style="color:var(--coral);font-size:24px;margin-top:-4px">0</div>
+</aside>
+
+<!-- HERO -->
+<section id="hero" class="hero" style="padding: 0px; height: 85px">
+  <div>
+    <h1 style="margin: 0 0 14px; padding: 0">Mijn Droom<span class="small" style="margin-top:8px">Van Student naar verpleegkundige</span></h1>
+    <p class="lead" style="margin: 18px 0 0 20px; max-width: 520px">
+      Een reflectie over groeien als verpleegkundige — over <span class="underline-coral" style="font-weight:700">zelfvertrouwen</span>,
+      <span class="underline-mint" style="font-weight:700">assertieve communicatie</span> en de trap die ik dit jaar
+      stap voor stap heb beklommen.
+    </p>
+    <div class="who" style="margin-top: 22px; padding: 0px 0px 0px 20px">
+      <div class="dot">M</div>
+      <div>
+        <div style="color:var(--ink)">Bachelor Verpleegkunde · Pitch Groeien als Verpleegkundige</div>
+        <div>Academiejaar 2025–2026 · Doelstellingen 7.2 &amp; 14.3<br>Pitch: 2 Grow 2 Nurse<br>Elisa Botez</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="drawing-frame">
+      <img src="assets/mijn-droom.jpg" alt="Mijn droom: van leerling tot hoofdverpleegkundige, geïllustreerd als een trap">
+      <div class="caption">"Mijn grote Droom"</div>
+    </div>
+  </div>
+
+  <div class="arrow-down">scroll om mee te klimmen ↓</div>
+</section>
+
+<!-- BEGIN -->
+<section id="begin">
+  <span class="step-tag">stap 01 · het begin</span>
+  <h2>Hoe een ziekenhuisbezoek<br>mijn toekomst veranderde</h2>
+
+  <div class="origin">
+    <div class="card">
+      <p class="lead" style="margin-bottom:14px">
+        Sinds ik klein was wist ik dat mijn toekomst in de medische zorg lag.
+        Tot mijn laatste middelbaar wilde ik <span class="scratch">farmacie</span> studeren.
+      </p>
+      <p>
+        Tot ik op een dag mijn zus ging bezoeken in het ziekenhuis.
+        Ik zag de verpleegkundigen aan het werk, hoe enthousiast ze waren,
+        hoe zorgzaam ze met mijn zus omgingen, hoeveel geduld ze hadden.
+      </p>
+      <blockquote style="margin-top:18px">
+        Op dat moment veranderde mijn toekomstbeeld.<br>Ik werd verliefd op het beroep.
+      </blockquote>
+      <p style="margin-top:18px">
+        Tijdens mijn stage vorig jaar veranderde mijn droom opnieuw: niet kinderverpleegkundige,
+        maar <strong>hoofdverpleegkundige</strong> — omdat ik niet alleen graag mensen verzorg,
+        maar ook plan en organiseer.
+      </p>
+    </div>
+
+    <div class="timeline">
+      <div class="moment">
+        <div class="year">vroeger</div>
+        <div class="title">"Ik wil dokter of apotheker worden"</div>
+        <div class="desc"></div>
+      </div>
+      <div class="moment">
+        <div class="year">laatste middelbaar</div>
+        <div class="title">Bezoek aan mijn zus in het ziekenhuis</div>
+        <div class="desc">Ik zag wat verpleegkundigen écht doen. Toekomstbeeld 180° gedraaid.</div>
+      </div>
+      <div class="moment">
+        <div class="year">stage vorig jaar</div>
+        <div class="title">Van kinderverpleegkundige → hoofdverpleegkundige</div>
+        <div class="desc">Plannen, organiseren én verzorgen: ik ontdekte welke functie écht bij mij past.</div>
+      </div>
+      <div class="moment">
+        <div class="year">dit academiejaar</div>
+        <div class="title">Werken aan zelfvertrouwen &amp; communicatie</div>
+        <div class="desc">Twee doelstellingen, één missie: groeien naar wie ik wil zijn.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOELEN -->
+<section id="doelen">
+  <span class="step-tag">stap 02 · twee doelen</span>
+  <h2>Mijn twee doelstellingen<br>aan het begin van het jaar</h2>
+  <p class="lead" style="max-width:760px">Twee competenties die ik dit jaar echt wou aanpakken, want zonder zelfvertrouwen en goede communicatie kan je geen goede verpleegkundige zijn.</p>
+
+  <div class="goals">
+    <div class="goal" data-goal="comm" style="font-size:30px">
+      <div class="tag" style="font-size:10px">DOELSTELLING 7.2</div>
+      <h3 style="font-size:33px">"De student kan assertief en met respect opkomen voor eigen mening en open staan voor de mening van teamleden."</h3>
+      <div class="sub" style="font-size:20px">Communicatie · Assertiviteit</div>
+      <p style="font-size:18px">Ik wilde vaker actief deelnemen aan gesprekken en mijn mening durven delen, ook als ik onzeker was over mijn taalgebruik. Niet bang zijn om fouten te maken en beseffen dat dit normaal is en bij leren hoort.</p>
+      <div class="meter" aria-label="Communicatie meter">
+        <div class="now" data-target="70">7</div>
+        <div class="start" data-target="40" style="background-size: contain">4</div>
+      </div>
+      <div class="meter-labels">
+        <span style="font-size:16px">start · 4/10</span>
+        <span class="delta" style="font-size:20px">+3 punten</span>
+        <span style="font-size:13px">nu · 7/10</span>
+      </div>
+    </div>
+
+    <div class="goal" data-goal="zelf">
+      <div class="tag" style="font-size:17px">DOELSTELLING 14.3</div>
+      <h3 style="font-size:33px">"De student herkent, analyseert en bespreekt zijn mogelijkheden (kwaliteiten) en beperkingen (valkuilen)."</h3>
+      <div class="sub" style="font-size:20px">Zelfvertrouwen · Doorgroei</div>
+      <p style="font-size:18px">Ik wou stoppen met wachten op het perfecte moment en gewoon durven doen, ook als ik het nog spannend vond. En mijn talent voor plannen gebruiken als houvast, zodat ik rustiger kon werken.</p>
+      <div class="meter" aria-label="Zelfvertrouwen meter">
+        <div class="now" data-target="75">7,5</div>
+        <div class="start" data-target="50">5</div>
+      </div>
+      <div class="meter-labels">
+        <span>start · 5/10</span>
+        <span class="delta" style="font-size:18px">+2,5 punten</span>
+        <span>nu · 7,5/10</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="note" style="margin-top: 30px; font-size: 18px; color: var(--ink-soft); max-width: 760px">
+    <strong>Waarom juist deze twee?</strong> Als hoofdverpleegkundige moet ik een team kunnen aansturen,
+    duidelijke keuzes maken en vertrouwen uitstralen naar collega's én patiënten.
+    Zonder zelfvertrouwen en assertieve communicatie kan ik die rol niet waarmaken.
+  </p>
+</section>
+
+<!-- VALKUILEN -->
+<section id="valkuilen">
+  <span class="step-tag">stap 03 · de stenen op de trap</span>
+  <h2>Wat me tegenhield</h2>
+  <p class="lead" style="max-width:760px">Op de tekening liggen er stenen op de treden. Dit zijn de mijne, de overtuigingen en patronen die mij soms blokkeerden.</p>
+
+  <div class="rocks">
+    <div class="rock" style="--r:-3deg">
+      <h4>Perfectionisme</h4>
+      <p style="font-size: 17px">"Ik mag pas iets zeggen als mijn zin grammaticaal 100% klopt." Een blokkade die me verlamde.</p>
+      <div class="cracks"></div>
+    </div>
+    <div class="rock" style="--r:2deg">
+      <h4>Spotlight-illusie</h4>
+      <p style="font-size: 17px">Ik dacht dat iedereen op mijn fouten lette, terwijl mensen vooral met zichzelf bezig zijn.</p>
+      <div class="cracks"></div>
+    </div>
+    <div class="rock" style="--r: -1deg">
+      <h4>Vergelijken</h4>
+      <p style="font-size: 16px">Ik mat mezelf af aan anderen i.p.v. naar mijn eigen vooruitgang te kijken.</p>
+      <div class="cracks"></div>
+    </div>
+    <div class="rock" style="--r:3deg">
+      <h4>Focus op tekort</h4>
+      <p style="font-size: 17px">Ik zag vooral wat ik níet kon, niet wat ik wél al beheerste.</p>
+      <div class="cracks"></div>
+    </div>
+    <div class="rock" style="--r:-2deg">
+      <h4>"Ik ben niet goed genoeg"</h4>
+      <p style="font-size: 17px">Een overtuiging van kinds af aan: alleen als ik het goed doe, ben ik goed genoeg.</p>
+      <div class="cracks"></div>
+    </div>
+    <div class="rock" style="--r:1deg">
+      <h4>Interne criticus</h4>
+      <p style="font-size: 17px">Een stemmetje dat na elk gesprek herhaalde: "dat had je beter kunnen doen".</p>
+      <div class="cracks"></div>
+    </div>
+    <div class="rock" style="--r:-3deg">
+      <h4>Comfortzone</h4>
+      <p style="font-size: 17px">"Mag ik eerst een paar keer meekijken?" — wachten tot een ander het deed.</p>
+      <div class="cracks"></div>
+    </div>
+    <div class="rock" style="--r:2deg">
+      <h4>Dunning-Kruger dip</h4>
+      <p style="font-size: 17px">Hoe meer ik leerde, hoe meer ik zag wat ik nog niet kon, en hoe onzekerder ik werd.</p>
+      <div class="cracks"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BRONNEN -->
+<section id="bronnen" style="font-size: 21px">
+  <span class="step-tag" style="font-size: 28px">stap 04 · wat ik bestudeerde</span>
+  <h2 style="font-size: 80px">Mijn actiepunten</h2>
+  <p class="lead" style="max-width: 760px; font-size: 25px">
+    Een film, twee podcasts, een webinar, een e-learning en een cursus.
+    <span class="note" style="font-size: 20px; color: var(--muted)">Klik op een kaart om de kerninzichten te lezen ↓</span>
+  </p>
+
+  <div class="sources" id="sourceGrid">
+
+    <article class="src film">
+      <span class="badge" style="font-size: 15px">FILM</span>
+      <h3>The King's Speech</h3>
+      <div class="author">Tom Hooper · spraaktherapeut Lionel &amp; prins Bertie</div>
+      <p class="takeaway" style="font-size: 15px">Zelfvertrouwen groeit niet vóór het spreken, maar dóór het spreken zelf. Bertie's stotter verdween toen hij stopte te focussen op fouten.</p>
+      <div class="more">
+        <ul>
+          <li>Het probleem is niet de fout zelf, maar hoe streng je voor jezelf bent als je een fout maakt.</li>
+          <li>Wanneer Bertie zichzelf accepteerde ondanks zijn stotter, nam de druk af en werd zijn spraak beter.</li>
+          <li>Vooruitgang is alleen mogelijk door te blijven oefenen, Bertie gaf niet op, ook al stopte hij tijdelijk.</li>
+          <li>Mijn parallel: ik herken me in Bertie, bang zijn voor hoe ik klink en daardoor zwijgen.</li>
+        </ul>
+      </div>
+      <span class="toggle">lees meer </span>
+    </article>
+
+    <article class="src course">
+      <span class="badge" style="font-size: 16px">CURSUS</span>
+      <h3>Communiceren met vertrouwen</h3>
+      <div class="author"></div>
+      <p class="takeaway">Een goede spreker hoeft niet perfect te zijn. Mensen letten op hoe je eruitziet (55%), hoe je klinkt (38%), pas dan op woorden (7%).</p>
+      <div class="more">
+        <ul>
+          <li>Spotlight-illusie: je denkt dat iedereen je fouten ziet, in werkelijkheid zijn mensen vooral met zichzelf bezig.</li>
+          <li><strong>Flusterstrategie:</strong> pauzeer, adem diep in via je buik, vraag om verduidelijking.</li>
+          <li><strong>Ujjayi-ademhaling:</strong> diep inademen via de buik kalmeert je zenuwstelsel, je hartslag daalt, je kunt helderder denken.</li>
+          <li>Congruentie: lichaamstaal, stem en houding moeten kloppen bij wat je zegt, anders vertelt je lichaam een ander verhaal.</li>
+          <li>Oogcontact, rechtop zitten en handgebaren maken je geloofwaardiger.</li>
+        </ul>
+      </div>
+      <span class="toggle">lees meer </span>
+    </article>
+
+    <article class="src course">
+      <span class="badge" style="font-size: 15px">E-LEARNING</span>
+      <h3>Confidence: How to overcome self-doubt</h3>
+      <div class="author">E-learning · de groei-zone</div>
+      <p class="takeaway">Zelfvertrouwen ontstaat in de groei-zone: net buiten de comfortzone, maar nog niet in de paniekzone.</p>
+      <div class="more">
+        <ul>
+          <li>Vier zones: comfort → leer → groei → paniek. Groei zit in de spannende-maar-haalbare zone.</li>
+          <li>Stress hoort bij groeien en is gezond. Trauma (paniek) moet je vermijden, maak de uitdaging dan kleiner.</li>
+          <li>Het superego is dat stemmetje dat zegt "je bent niet goed genoeg". Het zijn gewoon oude regels die je als kind hebt geleerd.</li>
+        </ul>
+      </div>
+      <span class="toggle">lees meer </span>
+    </article>
+
+    <article class="src video">
+      <span class="badge" style="font-size: 16px">VIDEO · 25 MIN</span>
+      <h3>Hoe krijg ik meer zelfvertrouwen?</h3>
+      <div class="author">Psychologie van Succes · Sonnevelt &amp; Loorbach</div>
+      <p class="takeaway">Zelfvertrouwen is situatie-afhankelijk. Iemand kan een 10 zijn als ondernemer en een 4 op de dansvloer. Topsporters trillen op een podium.</p>
+      <div class="more">
+        <ul>
+          <li><strong>72-uurs regel:</strong> doe binnen 72 uur iets wat je al lang hebt uitgesteld → dopamine-shot → trots.</li>
+          <li><strong>Brief aan jezelf:</strong> schrijf wat je hebt bereikt en wat je in jezelf bewondert.</li>
+          <li><strong>Bekrachtigende vraag:</strong> "Welke kwaliteit van mezelf kan ik absoluut niet ontkennen?"</li>
+          <li>Kijk met vriendelijke aandacht naar jezelf, accepteer dat je bent wie je bent.</li>
+        </ul>
+      </div>
+      <span class="toggle">lees meer </span>
+    </article>
+
+    <article class="src podcast">
+      <span class="badge" style="font-size: 16px">PODCAST</span>
+      <h3>Perfectionisme en zelfkritiek loslaten</h3>
+      <div class="author">Podcast · over de interne criticus</div>
+      <p class="takeaway">Zelfvertrouwen is geen karaktereigenschap maar een vaardigheid die je traint door simpelweg te beginnen. Het gevoel komt ná de actie.</p>
+      <div class="more">
+        <ul>
+          <li>Perfectionisme begint vaak in de kindertijd: "ben ik wel goed genoeg?" → koppeling tussen presteren en waardering.</li>
+          <li>Dunning-Kruger: hoe meer je leert, hoe meer je beseft wat je nog niet kan, daar zakt het vertrouwen.</li>
+          <li>Doorbreek de cirkel: stop de negatieve gedachten, en accepteer jezelf zoals je bent want je bent genoeg.</li>
+          <li>Fouten horen bij het leerproces. Loslaten van perfectie geeft ruimte om écht te leren.</li>
+        </ul>
+      </div>
+      <span class="toggle">lees meer </span>
+    </article>
+
+    <article class="src webinar">
+      <span class="badge" style="font-size: 16px">WEBINAR</span>
+      <h3>Zo verbeter je je zelfvertrouwen</h3>
+      <div class="author">OpenUp, VGZ &amp; IZZ · Zelfvertrouwen in de zorg</div>
+      <p class="takeaway">35% van verpleegkundigen heeft een (zeer) lage zelfwaardering. Vooral jongere zorgmedewerkers hebben extra aandacht nodig.</p>
+      <div class="more">
+        <ul>
+          <li><strong>Zelfvertrouwen vs. zelfwaardering:</strong> vertrouwen in je kunnen vs. dieper liggende zelfacceptatie. Ze zijn niet hetzelfde.</li>
+          <li>Negatief zelfbeeld blijft in stand door selectieve aandacht, selectief geheugen en gedragspatronen (vermijden, uitstellen, perfectionisme).</li>
+          <li><strong>Imposter syndrome</strong> = laag zelfvertrouwen + perfectionisme: "ik ben niet goed genoeg".</li>
+          <li>Normale onzekerheid is positief: zet aan tot reflectie en verbetering, je houdt rekening met anderen.</li>
+        </ul>
+      </div>
+      <span class="toggle">lees meer </span>
+    </article>
+
+    <article class="src webinar">
+      <span class="badge" style="font-size: 16px">WEBINAR</span>
+      <h3>Assertiviteit: praktische tips</h3>
+      <div class="author">Learnit Training · balans &amp; respect</div>
+      <p class="takeaway">Assertief = opkomen voor jezelf met behoud van de relatie met de ander. Balans tussen subassertief (te zacht) en agressief (te hard).</p>
+      <div class="more">
+        <ul>
+          <li><strong>Belemmerende gedachten:</strong> doemdenken, ongezond perfectionisme, love junk, moraalridders, slachtofferdenken.</li>
+          <li>Communiceer persoonlijk en concreet: "ik zou graag willen dat...", niet via omwegen.</li>
+          <li>Oefen "nee" zeggen op rustige momenten, zo bewaak je in belangrijke situaties je grenzen.</li>
+          <li>Wees congruent: houding, stem en uitstraling moeten kloppen bij je woorden.</li>
+          <li>Goed luisteren = samenvatten en doorvragen, niet alleen reageren.</li>
+        </ul>
+      </div>
+      <span class="toggle">lees meer </span>
+    </article>
+
+  </div>
+</section>
+
+<!-- TOOLKIT -->
+<section id="toolkit">
+  <span class="step-tag">stap 05 · Tips</span>
+  <h2>Wat ik meeneem in mijn rugzak</h2>
+  <p class="lead" style="max-width:760px">Vallen, opstaan, doorgaan = mijn weg naar vooruitgang</p>
+
+  <div class="toolkit">
+    <div class="tool" style="--r:-1.2deg">
+      <div class="pin"></div>
+      <h4>24-uurs regel</h4>
+      <div class="label">van uitstellen naar doen</div>
+      <p>Doe binnen een bepaalde tijd wat je hebt uitgesteld. Het gevoel van trots dat erop volgt, geeft een echte boost aan je zelfvertrouwen.</p>
+    </div>
+    <div class="tool" style="--r:1.4deg">
+      <div class="pin"></div>
+      <h4>Het Witboek</h4>
+      <div class="label">succes-dagboek</div>
+      <p>Elke dag noteren de kleine successen. Het traint mijn "mentale spier" om positiever naar mezelf te kijken in plaats van naar wat fout ging.</p>
+    </div>
+    <div class="tool" style="--r:-1deg">
+      <div class="pin"></div>
+      <h4>Flusterstrategie</h4>
+      <div class="label">bij moeilijke vragen</div>
+      <p>Pauzeer eerst. Adem diep in via je buik. Vraag dán om verduidelijking: "kun je dat herhalen?" Geeft je hersenen de tijd om tot rust te komen.</p>
+    </div>
+    <div class="tool" style="--r:1deg">
+      <div class="pin"></div>
+      <h4>Ujjayi-ademhaling</h4>
+      <div class="label">vóór een presentatie</div>
+      <p>Diep inademen via de buik, langzaam uitademen. Hartslag zakt, stress neemt af, de hersenen kunnen weer helder nadenken.</p>
+    </div>
+    <div class="tool" style="--r:-1.5deg">
+      <div class="pin"></div>
+      <h4>Congruentie</h4>
+      <div class="label">lichaamstaal eerst</div>
+      <p>Oogcontact, rechtop zitten en handgebaren gebruiken. Onderzoek toont dat 55% van wat overkomt lichaamstaal is, 38% je stem en pas 7% de woorden zelf, taalfoutjes vallen dus veel minder op dan je denkt.</p>
+    </div>
+    <div class="tool" style="--r:-.8deg">
+      <div class="pin"></div>
+      <h4>Bekrachtigende vraag</h4>
+      <div class="label">tegen de criticus</div>
+      <p>"Welke kwaliteit van mezelf kan ik absoluut niet ontkennen?" Deze vraag verschuift de focus meteen van wat je niet kan naar wat je wél hebt.</p>
+    </div>
+    <div class="tool" style="--r:1.4deg">
+      <div class="pin"></div>
+      <h4>Radicale acceptatie</h4>
+      <div class="label">"ik ben genoeg"</div>
+      <p>Tegen mezelf zeggen, in de spiegel, op een wandeling, bij oplopende spanning: "ik ben wie ik ben en dat is genoeg".</p>
+    </div>
+    <div class="tool" style="--r:-1deg">
+      <div class="pin"></div>
+      <h4>Groei-zone denken</h4>
+      <div class="label">spannend maar haalbaar</div>
+      <p>Echte groei gebeurt net buiten de comfortzone, maar nog vóór de paniekzone. Zoek dus uitdagingen die net buiten je gewoontes liggen, groot genoeg om iets bij te leren, klein genoeg om vol te houden.</p>
+    </div>
+  </div>
+</section>
+
+<!-- KEERPUNTEN -->
+<section id="keerpunten">
+  <span class="step-tag">stap 06 · keerpunten</span>
+  <h2>De momenten waarop ik mijn groei voelde</h2>
+  <p class="lead" style="max-width:760px">
+    Concrete situaties dit jaar waarin ik iets deed wat ik vorig jaar nooit gedurfd had.
+  </p>
+
+  <div class="proofs">
+    <div class="proof">
+      <div class="where">STAGE · CONSULTATIE</div>
+      <h4>Mijn eerste vaccin, alleen</h4>
+      <p>
+        Vroeger zou ik zeggen: "mag ik eerst een paar keer meekijken?" of "ik doe het volgende keer wel."
+        Deze keer niet. Ik besloot dat ik mijn grenzen wilde verleggen.
+      </p>
+      <p>
+        Ik voelde de spanning in mijn lichaam, maar paste de flusterstrategie toe:
+        ademhalen, houding rechtzetten, focus op de taak. Het lukte.
+      </p>
+      <div class="feel">→ bewijs dat ik mijn perfectionisme kan overwinnen met doorzettingsvermogen.</div>
+    </div>
+
+    <div class="proof">
+      <div class="where">STAGE · TEAMBRIEFING</div>
+      <h4>Briefing aan het team</h4>
+      <p>Aan het begin van het jaar had ik dit echt nooit durven doen. Ik gaf een briefing aan het hele team, bewust met oogcontact en een rustige stem.</p>
+      <p>
+        De feedback was positief. Het gaf me een enorme duw vooruit.
+      </p>
+      <div class="feel">→ congruentie werkt: mijn lichaamstaal voerde mijn boodschap mee.</div>
+    </div>
+
+    <div class="proof">
+      <div class="where">STAGE · FEDASIL</div>
+      <h4>Consultaties &amp; triage, alleen</h4>
+      <p>Bij Fedasil deed ik consultaties zelfstandig en voerde ik triage uit. Een grote stap: bewoners zelfstandig beoordelen en beslissingen nemen.</p>
+      <p>Bij moeilijke vragen: pauzeren, ademen, om verduidelijking vragen. Niet doen alsof ik alles wist, gewoon vragen.</p>
+      <div class="feel">→ vragen stellen is een kracht, geen zwakte.</div>
+    </div>
+
+    <div class="proof">
+      <div class="where">STAGE · GESPREK MET TOLK</div>
+      <h4>Een resident en een tolk</h4>
+      <p>
+        Aan het begin van het jaar zou dit me enorm gestresst hebben: in het Nederlands
+        communiceren via een tolk, met een kwetsbare persoon.
+      </p>
+      <p>
+        Ik bleef rustig zitten, maakte oogcontact, gebruikte open handgebaren,
+        en gaf de tolk en resident de tijd om te reageren. Na afloop zei de tolk: <em>"Dat was een goed gesprek."</em>
+      </p>
+      <div class="feel">→ door te dóén in plaats van te wachten, ontdekte ik dat het kán.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GROEI / SWOT -->
+<section id="groei">
+  <span class="step-tag">stap 07 · de groei in beeld</span>
+  <h2>Mijn groei in kaart</h2>
+  <p class="lead" style="max-width:760px">
+    Twee doelstellingen, één SWOT-analyse per doel. Schakel tussen de tabbladen om de analyse per competentie te lezen.
+  </p>
+
+  <div class="swot-tabs" role="tablist">
+    <button class="active" data-tab="zelf">14.3 · Zelfvertrouwen</button>
+    <button data-tab="comm">7.2 · Communicatie</button>
+  </div>
+
+  <!-- ZELF -->
+  <div class="swot-grid" data-pane="zelf">
+    <div class="swot-box strength">
+      <h4><span class="ico">S</span>Sterktes</h4>
+      <ul>
+        <li>Doorzettingsvermogen: ik geef niet op, ook al vond ik het meerdere keren moeilijk.</li>
+        <li>De 24-uurs regel: ik pak taken nu direct aan i.p.v. uit te stellen.</li>
+        <li>Zelfbewustzijn: ik herken mijn perfectionisme en blijf elke dag werken aan manieren om dit los te laten.</li>
+      </ul>
+    </div>
+    <div class="swot-box weak">
+      <h4><span class="ico">W</span>Zwaktes</h4>
+      <ul>
+        <li>Perfectionisme: ik leg de lat soms nog hoog en zie de goede kanten niet altijd.</li>
+        <li>Onzekerheid bij nieuwe taken: bij spannende opdrachten schiet ik soms in de paniek-zone.</li>
+        <li>Moeite met zelf-complimenten: positief over mezelf denken is nog geen automatisme.</li>
+      </ul>
+    </div>
+    <div class="swot-box opp">
+      <h4><span class="ico">O</span>Kansen</h4>
+      <ul>
+        <li>Het Witboek: dagelijks succes-dagboek bijhouden om mijn mentale spier te trainen.</li>
+        <li>Mijn motto: <em>"Succes betekent blijven doorgaan."</em></li>
+      </ul>
+    </div>
+    <div class="swot-box threat">
+      <h4><span class="ico">T</span>Bedreigingen</h4>
+      <ul>
+        <li>Mezelf vergelijken met anderen en daardoor terugvallen in oude patronen van twijfel.</li>
+        <li>Bij hoge werkdruk vergeet ik mijn eigen grenzen en ga ik te veel pleasen.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COMM -->
+  <div class="swot-grid" data-pane="comm" style="display:none">
+    <div class="swot-box strength">
+      <h4><span class="ico">S</span>Sterktes</h4>
+      <ul>
+        <li>Doorzettingsvermogen, net als Bertie blijf ik proberen deel te nemen aan gesprekken.</li>
+        <li>Ujjayi-ademhaling vóór stressvolle momenten: kalmeert mijn zenuwstelsel.</li>
+        <li>Bewustzijn van lichaamstaal: ik weet dat houding en stem belangrijker zijn dan exacte woorden.</li>
+        <li>Ik durf "ik vind dat..." en "ik stel voor..." te zeggen, ook in groepswerk.</li>
+      </ul>
+    </div>
+    <div class="swot-box weak">
+      <h4><span class="ico">W</span>Zwaktes</h4>
+      <ul>
+        <li>Mijn interne criticus die achteraf nog steeds zegt: "dat woord was eigenlijk fout."</li>
+        <li>Perfectionisme dat me soms terugtrekt in de veilige zone van zwijgen.</li>
+        <li>Spanning bij onverwachte vragen: dan ga ik sneller praten of juist zwijgen.</li>
+      </ul>
+    </div>
+    <div class="swot-box opp">
+      <h4><span class="ico">O</span>Kansen</h4>
+      <ul>
+        <li>Stage en groepswerk: dé plekken om de flusterstrategie te oefenen.</li>
+        <li>Acceptatie: "ik ben wie ik ben en dat is genoeg."</li>
+        <li>Tweerichtingscommunicatie: niet alleen praten, ook letten op hoe de ander reageert.</li>
+        <li>The King's Speech laat zien dat het niet erg is om fouten te maken in een gesprek, het belangrijkste is dat je het gesprek toch durft te starten.</li>
+      </ul>
+    </div>
+    <div class="swot-box threat">
+      <h4><span class="ico">T</span>Bedreigingen</h4>
+      <ul>
+        <li>De spotlight-illusie: angst dat collega's alleen op taalfouten letten.</li>
+        <li>Op moe-momenten word ik sneller onzeker en val ik terug in oude patronen.</li>
+      </ul>
+    </div>
+  </div>
+
+  <blockquote style="margin-top:36px;max-width:820px">
+    Ik probeer steeds minder te wachten tot de angst weg is. Het lukt niet altijd, maar ik ontdek elke keer opnieuw dat zelfvertrouwen niet uit je hoofd komt, maar uit je handen en je daden.
+  </blockquote>
+</section>
+
+<!-- EINDE -->
+<section id="einde">
+  <span class="step-tag">stap 08 · op de bovenste trede</span>
+  <h2>Wie ik vandaag ben</h2>
+
+  <div class="crown">
+    <div>
+      <p class="lead">
+        Vorig jaar stond ik onderaan de trap en keek ik vooral omhoog,
+        naar alles wat ik nog niet kon en naar wie ik nog niet was.
+      </p>
+      <p>
+        Vandaag, een schooljaar later, sta ik een paar treden hoger.
+        Ik zie nog steeds wat ik nog moet leren, maar ik durf eindelijk
+        ook eens naar beneden te kijken, naar alles wat ik dit jaar al
+        wél heb meegemaakt en geleerd.
+      </p>
+      <p>
+        Ik ben er nog niet, en dat hoeft ook niet. Want elke trede die ik zet,
+        brengt me dichter bij de verpleegkundige die ik wil worden.
+      </p>
+      <div class="sticker" style="margin-top:18px">elke dag een treetje hoger</div>
+    </div>
+
+    <div>
+      <h3 style="font-size:34px;margin-bottom:6px">Mijn waarden</h3>
+      <div class="values">
+        <span class="value coral" style="--r:-2deg">zorgzaamheid</span>
+        <span class="value mint" style="--r:1deg">geduld</span>
+        <span class="value blue" style="--r:-1deg">empathie</span>
+        <span class="value gold" style="--r:2deg">respect</span>
+        <span class="value coral" style="--r:1deg">team ondersteunen</span>
+        <span class="value mint" style="--r:-2deg">vertrouwen</span>
+      </div>
+
+      <p class="note" style="margin-top:24px;font-size:18px;color:var(--ink)">
+        <strong>Mijn motto:</strong> <span class="underline-coral hand-light" style="font-size:32px">Succes betekent blijven doorgaan.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="inner">
+    <span class="step-tag" style="background:var(--coral);color:#fff;border-color:#fff;box-shadow:3px 3px 0 #fff;font-size:54px;padding:10px 28px;letter-spacing:1px">Dank u wel!</span>
+    <h2 style="margin-top:14px">Een laatste blik op de trap</h2>
+    <p class="lead" style="color:#f0e3b8;max-width:760px">
+      Aan het begin van het jaar stond ik onderaan: 4 op 10 voor communicatie, 5 op 10 voor zelfvertrouwen.
+      Vandaag sta ik op 7 en 7,5 — niet omdat de angst weg is, maar omdat ik geleerd heb te doen <em>terwijl</em> ik bang ben.
+    </p>
+
+    <blockquote style="margin-top:18px">
+      Zelfvertrouwen groeit niet vóór het spreken,<br>maar dóór het spreken zelf.
+    </blockquote>
+
+    <h3 style="margin-top:50px;color:#fff;font-size:36px">Dit zijn de actiepunten die mij veel hebben geleerd</h3>
+    <div class="docs">
+      <a class="doc" href="docs/mijn-droom.pdf" target="_blank"><span class="icon">PDF</span><span>Mijn grote droom</span></a>
+      <a class="doc" href="docs/film-samenvatting.pdf" target="_blank"><span class="icon">PDF</span><span>The King's Speech (samenvatting)</span></a>
+      <a class="doc" href="docs/communiceren.pdf" target="_blank"><span class="icon">PDF</span><span>Communiceren met vertrouwen</span></a>
+      <a class="doc" href="docs/confidence-elearning.pdf" target="_blank"><span class="icon">PDF</span><span>Confidence E-learning</span></a>
+      <a class="doc" href="docs/hoe-zelfvertrouwen.pdf" target="_blank"><span class="icon">PDF</span><span>Hoe krijg ik meer zelfvertrouwen</span></a>
+      <a class="doc" href="docs/podcast.pdf" target="_blank"><span class="icon">PDF</span><span>Podcast Zelfvertrouwen</span></a>
+      <a class="doc" href="docs/perfectionisme.pdf" target="_blank"><span class="icon">PDF</span><span>Perfectionisme &amp; zelfkritiek</span></a>
+      <a class="doc" href="docs/webinar.pdf" target="_blank"><span class="icon">PDF</span><span>Webinar — Zelfvertrouwen in de zorg</span></a>
+      <a class="doc" href="docs/assertiviteit.pdf" target="_blank"><span class="icon">PDF</span><span>Assertiviteit (Learnit)</span></a>
+    </div>
+
+    <p class="note" style="margin-top:60px;color:#c4b482;font-size:15px">
+      Paper Groeien als Verpleegkundige · Academiejaar 2025–2026 · Doelstellingen 7.2 &amp; 14.3
+    </p>
+  </div>
+</div>
+
+<script>
+  // Source cards: click to expand
+  document.querySelectorAll('.src').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('open'));
+  });
+
+  // SWOT tabs
+  const tabs = document.querySelectorAll('.swot-tabs button');
+  const panes = document.querySelectorAll('[data-pane]');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    const which = t.dataset.tab;
+    panes.forEach(p => { p.style.display = p.dataset.pane === which ? '' : 'none'; });
+  }));
+
+  // Meters: animate to target when visible
+  const metersAnimated = new WeakSet();
+  function animateMeter(meter){
+    if(metersAnimated.has(meter)) return;
+    metersAnimated.add(meter);
+    const now = meter.querySelector('.now');
+    const start = meter.querySelector('.start');
+    requestAnimationFrame(() => {
+      start.style.width = start.dataset.target + '%';
+      now.style.width = now.dataset.target + '%';
+    });
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        if(e.target.classList.contains('meter')) animateMeter(e.target);
+        e.target.classList.add('in');
+      }
+    });
+  }, {threshold:.2});
+  document.querySelectorAll('.meter, .reveal').forEach(el => io.observe(el));
+
+  // Top nav active + staircase footprint
+  const sections = ['hero','begin','doelen','valkuilen','bronnen','toolkit','keerpunten','groei','einde'];
+  const navLinks = document.querySelectorAll('nav.topnav a');
+  const stepNum = document.getElementById('step-num');
+  const footprint = document.getElementById('footprint');
+
+  function update(){
+    const y = window.scrollY + window.innerHeight*0.35;
+    let activeIdx = 0;
+    sections.forEach((id,i) => {
+      const el = document.getElementById(id);
+      if(el && el.offsetTop <= y) activeIdx = i;
+    });
+    navLinks.forEach((a,i) => a.classList.toggle('active', i === activeIdx));
+    stepNum.textContent = activeIdx;
+    const pct = activeIdx / (sections.length - 1);
+    footprint.style.top = (90 - pct * 80) + '%';
+  }
+  window.addEventListener('scroll', update, {passive:true});
+  update();
+</script>
+
+</body>
+</html>
