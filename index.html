@@ -578,6 +578,89 @@
     background:var(--paper-2);border:1px solid var(--line);
     padding:2px 10px;border-radius:999px;margin-right:6px;
   }
+
+  /* ============ MOBILE (iPhone) ============ */
+  @media (max-width: 600px) {
+    /* Section padding */
+    section {
+      padding: 72px 18px 48px 18px !important;
+    }
+
+    /* Hero: restore top padding so content isn't hidden behind nav */
+    section#hero.hero {
+      padding: 88px 18px 56px !important;
+      height: auto !important;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .hero-right { width: 100%; }
+    .drawing-frame { max-width: 100%; width: 100%; }
+
+    /* Core type scale */
+    h1 { font-size: clamp(44px, 12vw, 64px) !important; }
+    h2 { font-size: clamp(34px, 9vw, 52px) !important; line-height: 1.05 !important; }
+    blockquote { font-size: 22px !important; }
+    p.lead { font-size: 17px !important; }
+
+    /* Bronnen inline overrides */
+    #bronnen h2 { font-size: clamp(36px, 10vw, 52px) !important; }
+    #bronnen > p.lead { font-size: 17px !important; }
+    #bronnen > p.lead .note { font-size: 14px !important; }
+
+    /* Rocks: 2×4 instead of 4×2 */
+    .rocks { grid-template-columns: 1fr 1fr !important; gap: 14px; }
+    .rock { padding: 18px 14px; }
+    .rock h4 { font-size: 22px; }
+    .rock p { font-size: 14px !important; }
+
+    /* Goals already 1 col at 780px, just reduce font */
+    .goal h3 { font-size: 22px !important; }
+    .goal .sub { font-size: 16px !important; }
+    .goal p { font-size: 15px !important; }
+
+    /* Source cards: single column */
+    .sources { grid-template-columns: 1fr !important; }
+
+    /* Toolkit: single column */
+    .toolkit { grid-template-columns: 1fr !important; }
+
+    /* Proofs: already 1 col at 780px */
+
+    /* SWOT tabs */
+    .swot-tabs { gap: 6px; }
+    .swot-tabs button { font-size: 14px !important; padding: 7px 12px; }
+
+    /* Crown */
+    .crown { grid-template-columns: 1fr !important; gap: 28px; }
+    .values { gap: 10px; }
+    .value { font-size: 20px !important; padding: 6px 14px; }
+
+    /* Who block */
+    .who { font-size: 16px; gap: 12px; padding: 0 !important; }
+
+    /* Closing */
+    .closing { padding: 48px 18px 36px; margin-top: 40px; }
+    .closing .step-tag { font-size: 32px !important; padding: 8px 18px !important; }
+    .closing h2 { font-size: clamp(32px, 9vw, 48px) !important; }
+    .closing blockquote { font-size: 20px !important; }
+
+    /* Docs: single column */
+    .docs { grid-template-columns: 1fr !important; }
+    .doc { font-size: 16px; }
+
+    /* Step tag */
+    .step-tag { font-size: 20px !important; }
+
+    /* Arrow down */
+    .hero .arrow-down { font-size: 16px; }
+
+    /* Origin card + timeline */
+    .origin .card p { font-size: 15px; }
+    .timeline .moment .title { font-size: 16px; }
+  }
 </style>
 </head>
 <body>
